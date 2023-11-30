@@ -1,0 +1,33 @@
+﻿@model EmployeeManagementMVC.Models.MvcAdmin
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="container">
+    <form action="/Home/Login" method="post">
+        @Html.HiddenFor(model => model.ID)
+        <h4 class="mt-3">Login</h4>
+
+        <div class="mb-3 mt-5 col-lg-4">
+            <label for="exampleInputEmail1" class="form-label">Username</label>
+            @Html.TextBoxFor(model => model.Username, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Username)
+        </div>
+        <div class="mb-3 col-lg-4">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", type = "password" })
+            @Html.ValidationMessageFor(model => model.Password)
+        </div>
+        <div class="mb-3">
+            <span style="display:@Session["wrong"]; color:red"><strong>Wrong Credentials please enter again!</strong></span>
+        </div>
+        <div class="mb-3 col-lg-4">
+            <button type="submit" class="btn btn-primary">Login</button>
+        </div>
+        
+    </form>
+</div>
+
+
+

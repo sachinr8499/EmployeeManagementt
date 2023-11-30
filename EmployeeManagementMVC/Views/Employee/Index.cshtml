@@ -1,0 +1,74 @@
+﻿@model IEnumerable<EmployeeManagementMVC.Models.MvcEmployee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<p>
+    <a href="@Url.Action("AddOrEdit", "Employee")" class="btn btn-outline-secondary"><i class="fa fa-plus" style="margin-right:4px"></i>Create New</a>
+</p>
+<table class="table table-striped">
+    <thead class="table-dark">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Age)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Skills)
+            </th>
+            <th>
+               Actions
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Age)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Skills)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Department)
+        </td>
+        <td>
+            <a href="@Url.Action("AddOrEdit", "Employee", new { id=item.ID })" class="btn btn-outline-dark"><i class="fa fa-pencil" style="margin-right:4px"></i>Edit</a>
+            <a href="@Url.Action("Delete", "Employee", new { id=item.ID })" class="btn btn-outline-dark"><i class="fa fa-trash" style="margin-right:4px"></i>Delete</a>
+        </td>
+    </tr>
+}
+
+</table>
+
+
+@section scripts{
+    <script>
+        $(function () {
+            var message = '@TempData["SuccessMessage"]';
+            if (message != '')
+            {
+                alertify.success(message);
+            }
+        })
+    </script>
+    }

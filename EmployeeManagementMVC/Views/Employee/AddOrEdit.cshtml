@@ -1,0 +1,51 @@
+﻿@model EmployeeManagementMVC.Models.MvcEmployee 
+@{
+    ViewBag.Title = "AddOrEdit";
+}
+
+
+<div class="container">
+    @using (Html.BeginForm())
+    {
+        @Html.HiddenFor(model => model.ID)
+        <h2 class="mt-3">Add Employee Details</h2>
+
+        <div class="mb-3 col-lg-4">
+            <label  class="form-label">Name</label>
+            @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Name)
+        </div>
+        <div class="mb-3 col-lg-4">
+            <label class="form-label">Department</label>
+            @Html.TextBoxFor(model => model.Department, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Department)
+        </div>
+        <div class="mb-3 col-lg-4">
+            <label class="form-label">Age</label>
+            @Html.TextBoxFor(model => model.Age, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Age)
+        </div>
+        <div class="mb-3 col-lg-4">
+            <label class="form-label">Status</label>
+            @Html.TextBoxFor(model => model.Status, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Status)
+        </div>
+        <div class="mb-3 col-lg-4">
+            <label class="form-label">Skills</label>
+            @Html.TextBoxFor(model => model.Skills, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.Skills)
+        </div>
+        <div class="mb-3">
+            <span style="display:@Session["empty-fields"]; color:red"><strong>Please fill all the details!</strong></span>
+        </div>
+        <div>
+            <input type="submit" value="Submit" class="btn btn-success" />
+            <input type="reset" value="Reset" class="btn" />
+        </div>
+    }
+</div>
+
+@section scripts{
+    @Scripts.Render("~/bundles/jqueryval");
+    }
+

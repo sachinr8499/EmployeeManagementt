@@ -1,0 +1,45 @@
+﻿
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:sans-serif;
+}
+
+body {
+    
+}
+
+form {
+    border-radius: 20px;
+    margin-top: 150px !important;
+    width: 35% !important;
+    background-color: white !important;
+    padding: 50px;
+}
+
+.btn-primary {
+    width: 100%;
+    border: none;
+    border-radius: 50px;
+}
+
+.form-control {
+    color: rgba(0,0,0,.87);
+    box-shadow: none !important;
+}
+
+h4 {
+    font-size: 2rem !important;
+    font-weight: 700;
+}
+
+.form-label {
+    font-weight: 800 !important;
+}
+
+@media only screen and (max-width: 600px) {
+    form {
+        width: 100% !important;
+    }
+}
